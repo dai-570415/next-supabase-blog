@@ -47,13 +47,13 @@ ul li {
     }
 }
 main {
-    width: calc(100% - 80px);
-    max-width: 1000px;
+    width: 100%;
+    max-width: 500px;
     height: 100vh;
-    margin: 40px auto;
+    margin: 0 auto 40px;
 }
 @media screen and (max-width: 767px) {
     main {
-        margin: 20px auto;
+        margin: 0 auto 20px;
     }
 }

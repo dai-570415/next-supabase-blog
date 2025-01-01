@@ -2,19 +2,12 @@ import { useSupabasePosts } from '@/hooks/useSupabasePosts';
 import Styles from './css/News.module.css';
 
 export const News = () => {
-    const { posts, title, content, setTitle, setContent, handleSubmit, loading } = useSupabasePosts();
+    const { posts, content, setContent, handleSubmit, loading } = useSupabasePosts();
 
     return (
         <div className={Styles.news}>
             <form onSubmit={handleSubmit}>
                 <div className={Styles.input}>
-                    <input
-                        type="text"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        placeholder="タイトルを入力"
-                        required
-                    />
                     <textarea
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
@@ -32,7 +25,6 @@ export const News = () => {
                 <ul>
                     {posts.map((post) => (
                         <li key={post.id}>
-                            <h3>{post.title}</h3>
                             <p>{post.content}</p>
                             <small>{new Date(post.created_at).toLocaleString()}</small>
                         </li>

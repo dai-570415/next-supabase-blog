@@ -4,7 +4,6 @@ import { PostTypes } from '@/types';
 
 export const useSupabasePosts = () => {
     const [posts, setPosts] = useState<PostTypes[]>([]);
-    const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -34,12 +33,11 @@ export const useSupabasePosts = () => {
 
         const { error } = await supabase
         .from('posts')
-        .insert([{ title, content }]);
+        .insert([{ content }]);
 
         setLoading(false);
 
         if (!error) {
-            setTitle('');
             setContent('');
             fetchPosts();
         } else {
@@ -48,5 +46,5 @@ export const useSupabasePosts = () => {
         }
     };
 
-    return { posts, title, content, setTitle, setContent, handleSubmit, loading, };
+    return { posts, content, setContent, handleSubmit, loading, };
 }
