@@ -1,0 +1,90 @@
+.news {
+    display: flex;
+    justify-content: space-between;
+}
+@media screen and (max-width: 767px) {
+    .news {
+        flex-direction: column;
+        gap: 20px 0;
+    }
+}
+.news form {
+    position: sticky;
+    top: 40px;
+    width: 30%;
+    height: 100vh;
+    margin: 0 0 20px 0;
+}
+@media screen and (max-width: 767px) {
+    .news form {
+        position: static;
+        top: 0;
+        width: 100%;
+        height: auto;
+    }
+}
+.news form .input input,
+.news form .input textarea {
+    display: block;
+    font-size: 12px;
+    color: var(--foreground);
+    line-height: 1.4;
+    width: 100%;
+    margin: 0 0 10px 0;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--background);
+}
+.news form .input textarea {
+    resize: vertical;
+    height: 70px;
+}
+.news form button {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--foreground);
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #444343;
+    border-radius: 10px;
+    background: var(--background);
+}
+.news .newsList {
+    width: 65%;
+    margin: 0 0 40px 0;
+}
+@media screen and (max-width: 767px) {
+    .news .newsList {
+        width: 100%;
+    }
+}
+.news .newsList ul li {
+    margin: 0 0 20px 0;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid var(--border);
+}
+.news .newsList ul li:last-child {
+    margin: 0;
+    padding: 0;
+    border-bottom: none;
+}
+.news .newsList ul li h3 {
+    font-size: 16px;
+    margin: 0 0 10px 0;
+}
+.news .newsList ul li p {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+}
+.news .newsList ul li small {
+    font-size: 12px;
+    color: var(--border);
+}
+.news .newsList ul li h3,
+.news .newsList ul li p,
+.news .newsList ul li small {
+    text-align: justify;
+    line-height: 1.7;
+}
