@@ -6,7 +6,7 @@
     border-left: 1px solid var(--border);
     border-right: 1px solid var(--border);
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 499px) {
     .news {
         gap: 20px 0;
         border: none;
