@@ -78,12 +78,19 @@
                 small {
                     font-size: 12px;
                     color: var(--border);
+                    margin: 0 20px 0 0;
                 }
                 h3,
                 p,
                 small {
                     text-align: justify;
                     line-height: 1.7;
+                }
+                button {
+                    font-size: 11px;
+                    color: var(--foreground);
+                    border: none;
+                    background: none;
                 }
             }
         }

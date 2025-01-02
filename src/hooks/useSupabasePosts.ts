@@ -11,20 +11,6 @@ export const useSupabasePosts = () => {
     useEffect(() => {
         fetchPosts();
     }, []);
-    
-    // データ取得(READ)
-    const fetchPosts = async () => {
-        const { data, error } = await supabase
-        .from('posts')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-        if (!error) {
-            setPosts(data || []);
-        } else {
-            console.error(error);
-        }
-    };
 
     // データ投稿(CREATE)
     const handleSubmit = async (e: React.FormEvent) => {
@@ -43,6 +29,20 @@ export const useSupabasePosts = () => {
         } else {
             console.error(error);
             alert('投稿に失敗しました');
+        }
+    };
+    
+    // データ取得(READ)
+    const fetchPosts = async () => {
+        const { data, error } = await supabase
+        .from('posts')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+        if (!error) {
+            setPosts(data || []);
+        } else {
+            console.error(error);
         }
     };
 
