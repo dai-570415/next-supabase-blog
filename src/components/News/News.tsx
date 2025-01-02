@@ -2,7 +2,7 @@ import { useSupabasePosts } from '@/hooks/useSupabasePosts';
 import Styles from './css/News.module.css';
 
 export const News = () => {
-    const { posts, content, setContent, handleSubmit, loading } = useSupabasePosts();
+    const { posts, content, setContent, handleSubmit, handleDelete, loading } = useSupabasePosts();
 
     return (
         <div className={Styles.news}>
@@ -27,6 +27,7 @@ export const News = () => {
                         <li key={post.id}>
                             <p>{post.content}</p>
                             <small>{new Date(post.created_at).toLocaleString()}</small>
+                            <button onClick={() => handleDelete(post.id)}>削除</button>
                         </li>
                     ))}
                 </ul>

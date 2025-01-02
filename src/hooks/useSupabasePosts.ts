@@ -46,5 +46,20 @@ export const useSupabasePosts = () => {
         }
     };
 
-    return { posts, content, setContent, handleSubmit, loading, };
+    // データ削除(DELETE)
+    const handleDelete = async (id: string) => {
+        const { error } = await supabase
+            .from('posts')
+            .delete()
+            .eq('id', id);
+
+        if (!error) {
+            setPosts(posts.filter(post => post.id !== id)); // ローカル状態を更新
+        } else {
+            console.error(error);
+            alert('削除に失敗しました');
+        }
+    };
+
+    return { posts, content, setContent, handleSubmit, handleDelete, loading, };
 }
