@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/utils/supabase/server';
+import { User } from '@supabase/supabase-js';
 
 const Profile = () => {
-    const [user, setUser] = useState<any>(null);
+    const [user, setUser] = useState<User | null>(null);
     const [message, setMessage] = useState('');
 
     useEffect(() => {
