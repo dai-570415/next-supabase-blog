@@ -58,14 +58,14 @@
                 margin: 0 0 20px 0;
                 padding: 0 20px 20px;
                 border-bottom: 1px solid var(--border);
-                &:first-child {
-                    padding: 20px;
-                    border-top: 1px solid var(--border);
-                }
                 &:last-child {
                     margin: 0;
                     padding: 0 20px;
                     border-bottom: none;
+                }
+                &:first-child {
+                    padding: 20px;
+                    border-top: 1px solid var(--border);
                 }
                 h3 {
                     font-size: 16px;
