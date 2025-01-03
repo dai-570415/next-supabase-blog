@@ -7,19 +7,30 @@ export const useSupabasePosts = () => {
     const [content, setContent] = useState('');
     const [loading, setLoading] = useState(false);
 
-    // 初回データ取得
     useEffect(() => {
         fetchPosts();
     }, []);
 
-    // データ投稿(CREATE)
+    // 表示
+    const fetchPosts = async () => {
+        const { data, error } = await supabase
+            .from('posts')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+        if (!error) {
+            setPosts(data || []);
+        } else {
+            console.error(error);
+        }
+    };
+
+    // 追加
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
 
-        const { error } = await supabase
-        .from('posts')
-        .insert([{ content }]);
+        const { error } = await supabase.from('posts').insert([{ content }]);
 
         setLoading(false);
 
@@ -31,22 +42,25 @@ export const useSupabasePosts = () => {
             alert('投稿に失敗しました');
         }
     };
-    
-    // データ取得(READ)
-    const fetchPosts = async () => {
-        const { data, error } = await supabase
-        .from('posts')
-        .select('*')
-        .order('created_at', { ascending: false });
+
+    // 編集
+    const handleUpdate = async (id: string, newContent: string) => {
+        const { error } = await supabase
+            .from('posts')
+            .update({ content: newContent })
+            .eq('id', id);
 
         if (!error) {
-            setPosts(data || []);
+            setPosts(posts.map(post =>
+                post.id === id ? { ...post, content: newContent } : post
+            ));
         } else {
             console.error(error);
+            alert('更新に失敗しました');
         }
     };
 
-    // データ削除(DELETE)
+    // 削除
     const handleDelete = async (id: string) => {
         const { error } = await supabase
             .from('posts')
@@ -54,12 +68,12 @@ export const useSupabasePosts = () => {
             .eq('id', id);
 
         if (!error) {
-            setPosts(posts.filter(post => post.id !== id)); // ローカル状態を更新
+            setPosts(posts.filter(post => post.id !== id));
         } else {
             console.error(error);
             alert('削除に失敗しました');
         }
     };
 
-    return { posts, content, setContent, handleSubmit, handleDelete, loading, };
-}
+    return { posts, content, setContent, handleSubmit, handleUpdate, handleDelete, loading };
+};

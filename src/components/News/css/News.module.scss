@@ -89,8 +89,24 @@
                 button {
                     font-size: 11px;
                     color: var(--foreground);
+                    margin: 0 20px 0 0;
                     border: none;
                     background: none;
+                }
+                .borderBtn {
+                    margin: 0 10px 0 0;
+                    padding: 0 10px 0 0;
+                    border-right: 1px solid var(--foreground);
+                }
+                textarea {
+                    font-size: 16px;
+                    line-height: 1.4;
+                    color: var(--border);
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    background: none;
+                    resize: none;
                 }
             }
         }
