@@ -26,11 +26,11 @@ export const useSupabasePosts = () => {
     };
 
     // 追加
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent, userId: string) => {
         e.preventDefault();
         setLoading(true);
 
-        const { error } = await supabase.from('posts').insert([{ content }]);
+        const { error } = await supabase.from('posts').insert([{ content, user_id: userId }]);
 
         setLoading(false);
 

@@ -2,19 +2,19 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    gap: 40px 0;
     border-left: 1px solid var(--border);
     border-right: 1px solid var(--border);
 }
 @media screen and (max-width: 499px) {
     .news {
-        gap: 20px 0;
         border: none;
     }
 }
 .news form {
     width: 100%;
-    margin: 0 0 20px 0;
+    margin: 0;
+    padding: 0 0 40px 0;
+    border-bottom: 1px solid var(--border);
 }
 .news form .input input,
 .news form .input textarea {
@@ -60,14 +60,12 @@
     padding: 0 20px 20px;
     border-bottom: 1px solid var(--border);
 }
-.news .newsList ul li:last-child {
-    margin: 0;
-    padding: 0 20px;
-    border-bottom: none;
-}
 .news .newsList ul li:first-child {
     padding: 20px;
-    border-top: 1px solid var(--border);
+}
+.news .newsList ul li:last-child {
+    margin: 0;
+    border-bottom: none;
 }
 .news .newsList ul li h3 {
     font-size: 16px;

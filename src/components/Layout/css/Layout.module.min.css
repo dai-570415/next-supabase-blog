@@ -1,1 +1,1 @@
-.header{display:flex;justify-content:space-between;padding:20px;border-bottom:1px solid var(--border)}.header .logo,.header .btn{font-family:16px;color:var(--foreground);padding:0;border:none}
+.header{display:flex;justify-content:space-between;padding:20px;border-bottom:1px solid var(--border)}.header .logo,.header .btn{font-family:16px;color:var(--foreground);padding:0;border:none}.header .right{display:flex;justify-content:space-between;align-items:center;gap:0 20px}.header .right p{font-size:14px}@media screen and (max-width: 499px){.header .right p{display:none}}

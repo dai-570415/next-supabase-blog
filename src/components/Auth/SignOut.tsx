@@ -22,7 +22,7 @@ export const SignOut = () => {
             onClick={handleSignOut}
             className={Styles.signout}
         >
-                サインアウト
+            サインアウト
         </button>
     );
 };

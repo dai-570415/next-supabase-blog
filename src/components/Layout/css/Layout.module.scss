@@ -10,4 +10,16 @@
         padding: 0;
         border: none;
     }
+    .right {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0 20px;
+        p {
+            font-size: 14px;
+            @media screen and (max-width:499px) {
+                display: none;
+            }
+        }
+    }
 }
