@@ -1,13 +1,13 @@
 :root {
-    --background: #ffffff;
-    --foreground: #171717;
-    --border: #444343;
+    --foreground: #333;
+    --background: #fff;
+    --border: #ccc;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
+        --foreground: #fff;
+        --background: #000;
         --border: #444343;
     }
 }
@@ -22,8 +22,20 @@ body {
     box-sizing: border-box;
 }
 
+h1 {
+    font-size: 32px;
+    margin: 0 0 20px 0;
+}
+
 a {
     text-decoration: none;
+    color: var(--foreground);
+    padding: 0 0 4px 0;
+    border-bottom: 1px dashed var(--foreground);
+    transition: 0.5s;
+}
+a:hover {
+    opacity: 0.5;
 }
 
 ul li {
@@ -48,7 +60,7 @@ ul li {
 }
 main {
     width: 100%;
-    max-width: 500px;
+    max-width: 480px;
     height: 100vh;
     margin: 0 auto 40px;
 }

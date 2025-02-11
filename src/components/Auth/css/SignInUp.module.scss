@@ -1,0 +1,58 @@
+.SignInUp {
+    padding: 40px 0;
+    @media screen and (max-width:768px) {
+        padding: 40px;
+    }
+    input,
+    button {
+        font-size: 16px;
+        width: 100%;
+        border: none;
+        outline: none;
+        background: none;
+        transition: .5s;
+    }
+    input {
+        color: var(--foreground);
+        margin: 0 0 10px 0;
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--border);
+        &:focus {
+            border-bottom: 1px solid var(--foreground);
+        }
+    }
+    button {
+        color: var(--foreground);
+        margin: 20px 0;
+        padding: 16px;
+        border: 1px solid var(--border);
+        border-radius: 9999px;
+        background: var(--background);
+        &:hover {
+            color: var(--background);
+            background: var(--foreground);
+        }
+    }
+    p {
+        text-align: center;
+        margin: 0 0 10px 0;
+    }
+    .alert {
+        color: #ff5555;
+    }
+}
+
+.signout {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--foreground);
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: 9999px;
+    background: none;
+    transition: .5s;
+    &:hover {
+        color: var(--background);
+        background: var(--foreground);
+    }
+}

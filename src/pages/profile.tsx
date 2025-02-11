@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/utils/supabase/server';
 import { User } from '@supabase/supabase-js';
+import { SignOut } from '@/components/Auth/SignOut';
 
 const Profile = () => {
     const [user, setUser] = useState<User | null>(null);
@@ -14,16 +15,16 @@ const Profile = () => {
         getUser();
     }, []);
 
-    // ログアウト処理を追加
-    const handleLogout = async () => {
-        const { error } = await supabase.auth.signOut();
-        if (error) {
-            setMessage(`Error: ${error.message}`);
-        } else {
-            setUser(null);
-            setMessage('Logged out successfully!');
-        }
-    };
+    // サインアウト処理を追加
+    // const handleSighOut = async () => {
+    //     const { error } = await supabase.auth.signOut();
+    //     if (error) {
+    //         setMessage(`Error: ${error.message}`);
+    //     } else {
+    //         setUser(null);
+    //         setMessage('Logged out successfully!');
+    //     }
+    // };
 
     return (
         <div>
@@ -31,7 +32,8 @@ const Profile = () => {
             {user ? (
                 <div>
                     <p>Email: {user.email}</p>
-                    <button onClick={handleLogout}>Log Out</button>
+                    <SignOut />
+                    {/* <button onClick={handleSighOut}>Log Out</button> */}
                 </div>
             ) : (
                 <p>No user logged in</p>

@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    .logo,
+    .btn {
+        font-family: 16px;
+        color: var(--foreground);
+        padding: 0;
+        border: none;
+    }
+}

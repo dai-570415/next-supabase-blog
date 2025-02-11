@@ -1,12 +1,12 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --border: #444343;
+  --foreground: #333;
+  --background: #fff;
+  --border: #ccc;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #fff;
+    --background: #000;
     --border: #444343;
   }
 }
@@ -15,14 +15,24 @@ body {
   background: var(--background);
 }
 
-
 *, h1, h2, h3, h4, h5, h6, p, a {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+h1 {
+  font-size: 32px;
+  margin: 0 0 20px 0;
+}
 a {
   text-decoration: none;
+  color: var(--foreground);
+  padding: 0 0 4px 0;
+  border-bottom: 1px dashed var(--foreground);
+  transition: .5s;
+  &:hover {
+    opacity: .5;
+  }
 }
 ul {
   li {
@@ -38,7 +48,7 @@ ul {
 
 main {
   width: 100%;
-  max-width: 500px;
+  max-width: 480px;
   height: 100vh;
   margin: 0 auto 40px;
 }

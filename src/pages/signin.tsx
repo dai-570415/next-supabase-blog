@@ -1,14 +1,14 @@
 import { Layout } from '@/components/Layout/Layout';
-import { SignUpComponent } from '@/components/Auth/SignUpComponent';
+import { SignInComponent } from '@/components/Auth/SignInComponent';
 
-const Signup = () => {
+const Signin = () => {
     return (
         <Layout>
             <main>
-                <SignUpComponent />
+                <SignInComponent />
             </main>
         </Layout>
     );
 };
 
-export default Signup;
+export default Signin;
