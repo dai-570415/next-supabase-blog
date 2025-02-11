@@ -7,6 +7,8 @@ const Profile = () => {
     const [user, setUser] = useState<User | null>(null);
     const [message, setMessage] = useState('');
 
+    console.log(setMessage);
+
     useEffect(() => {
         const getUser = async () => {
         const { data: { user } } = await supabase.auth.getUser();
