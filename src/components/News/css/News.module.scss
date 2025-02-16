@@ -10,7 +10,7 @@
     form {
         width: 100%;
         margin: 0;
-        padding: 0 0 40px 0;
+        padding: 0 0 20px 0;
         border-bottom: 1px solid var(--border);
         .input {
             input,
@@ -31,42 +31,48 @@
                 resize: none;
                 height: 120px;
             }
-            .interaction {
-                padding: 0 20px;
+        }
+        .interaction {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            .icon {
                 label {
                     display: block;
                     width: 24px;
                     height: 24px;
                     margin: 0 0 10px 0;
                     background: url('../../../../public/upload-icon.svg') no-repeat center center;
-                    background-size: contain;
+                    background-size: cover;
                     cursor: pointer;
-                    .file {
+                    input {
                         display: none;
                     }
                 }
-                .preview {
-                    margin: 0 0 20px 0;
-                    border-radius: 20px;
+            }
+            button {
+                display: block;
+                font-size: 12px;
+                font-weight: bold;
+                color: var(--background);
+                width: 120px;
+                padding: 8px;
+                border: 1px solid var(--foreground);
+                border-radius: 9999px;
+                background: var(--foreground);
+                transition: 0.5s;
+                &:hover {
+                    color: var(--foreground);
+                    background: var(--background);
                 }
             }
         }
-        button {
+        .preview {
             display: block;
-            font-size: 12px;
-            font-weight: bold;
-            color: var(--background);
-            width: 120px;
-            margin: 0 20px 0 auto;
-            padding: 8px;
-            border: 1px solid var(--foreground);
-            border-radius: 9999px;
-            background: var(--foreground);
-            transition: 0.5s;
-            &:hover {
-                color: var(--foreground);
-                background: var(--background);
-            }
+            width: calc(100% - 40px);
+            margin: 20px auto 0;
+            height: auto;
+            border-radius: 10px;
         }
     }
     .newsList {

@@ -27,14 +27,15 @@ export const News: FC = () => {
                             placeholder="内容を入力"
                             required
                         />
-
-                        <div className={Styles.interaction}>
+                    </div>
+                    
+                    <div className={Styles.interaction}>
+                        <div className={Styles.icon}>
                             <label htmlFor="file-upload">
                                 <input
                                     id="file-upload"
                                     name="file-upload"
                                     type="file"
-                                    className={Styles.file}
                                     accept="image/png, image/jpeg"
                                     onChange={(e) => {
                                         const fileList = e.target?.files;
@@ -42,13 +43,14 @@ export const News: FC = () => {
                                     }}
                                 />
                             </label>
-                            <img src={path} className={Styles.preview} style={{ width: '100%', height: '100%' }} alt="" />
                         </div>
+
+                        <button type="submit" disabled={loading}>
+                            {loading ? '投稿中...' : '投稿する'}
+                        </button>
                     </div>
-              
-                    <button type="submit" disabled={loading}>
-                        {loading ? '投稿中...' : '投稿する'}
-                    </button>
+
+                    <img src={path} className={Styles.preview} alt="" />
                 </form>
             )}
 
