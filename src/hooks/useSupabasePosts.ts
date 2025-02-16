@@ -26,17 +26,18 @@ export const useSupabasePosts = () => {
     };
 
     // 追加
-    const handleSubmit = async (e: React.FormEvent, userId: string) => {
+    const handleSubmit = async (e: React.FormEvent, userId: string, image01: string | undefined) => {
         e.preventDefault();
         setLoading(true);
 
-        const { error } = await supabase.from('posts').insert([{ content, user_id: userId }]);
+        const { error } = await supabase.from('posts').insert([{ content, user_id: userId, image01: image01 }]);
 
         setLoading(false);
 
         if (!error) {
             setContent('');
             fetchPosts();
+            window.location.reload();
         } else {
             console.error(error);
             alert('投稿に失敗しました');

@@ -34,6 +34,25 @@
     resize: none;
     height: 120px;
 }
+.news form .input .interaction {
+    padding: 0 20px;
+}
+.news form .input .interaction label {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 0 0 10px 0;
+    background: url("../../../../public/upload-icon.svg") no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+}
+.news form .input .interaction label .file {
+    display: none;
+}
+.news form .input .interaction .preview {
+    margin: 0 0 20px 0;
+    border-radius: 20px;
+}
 .news form button {
     display: block;
     font-size: 12px;
@@ -85,6 +104,13 @@
 .news .newsList ul li small {
     text-align: justify;
     line-height: 1.7;
+}
+.news .newsList ul li .eyecatch {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 10px 0 0 0;
+    border-radius: 20px;
 }
 .news .newsList ul li button {
     font-size: 11px;

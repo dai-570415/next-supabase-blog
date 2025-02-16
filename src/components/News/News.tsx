@@ -1,19 +1,25 @@
-import { useSupabasePosts } from '@/hooks/useSupabasePosts';
-import { useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 import Styles from './css/News.module.css';
 import { useAuthUser } from '@/hooks/useAuthUser';
+import { useSupabasePosts } from '@/hooks/useSupabasePosts';
+import { useStorage } from '@/hooks/useStorage';
 
-export const News = () => {
+export const News: FC = () => {
+    const { user } = useAuthUser();
+    const { path, handleUploadStorage } = useStorage();
     const { posts, content, setContent, handleSubmit, handleUpdate, handleDelete, loading, } = useSupabasePosts();
     const [editId, setEditId] = useState<string | null>(null);
     const [editContent, setEditContent] = useState<string>('');
+    const [image01, setImage01] = useState<string | undefined>(undefined);
 
-    const { user } = useAuthUser();
+    useEffect(() => {
+        setImage01(path);
+    }, [path]);
 
     return (
         <div className={Styles.news}>
             {user && (
-                <form onSubmit={(e) => handleSubmit(e, user.id)}>
+                <form onSubmit={(e) => handleSubmit(e, user.id, image01)}>
                     <div className={Styles.input}>
                         <textarea
                             value={content}
@@ -21,7 +27,25 @@ export const News = () => {
                             placeholder="内容を入力"
                             required
                         />
+
+                        <div className={Styles.interaction}>
+                            <label htmlFor="file-upload">
+                                <input
+                                    id="file-upload"
+                                    name="file-upload"
+                                    type="file"
+                                    className={Styles.file}
+                                    accept="image/png, image/jpeg"
+                                    onChange={(e) => {
+                                        const fileList = e.target?.files;
+                                        handleUploadStorage(fileList);
+                                    }}
+                                />
+                            </label>
+                            <img src={path} className={Styles.preview} style={{ width: '100%', height: '100%' }} alt="" />
+                        </div>
                     </div>
+              
                     <button type="submit" disabled={loading}>
                         {loading ? '投稿中...' : '投稿する'}
                     </button>
@@ -67,7 +91,6 @@ export const News = () => {
                                 <>
                                     <p>{post.content}</p>
                                     <small>{new Date(post.created_at).toLocaleString()}</small>
-
                                     {/* 投稿者の場合は表示、投稿者じゃない場合は非表示 */}
                                     {user?.id == post.user_id && (
                                         <>
@@ -82,7 +105,10 @@ export const News = () => {
                                             </button>
                                             <button onClick={() => handleDelete(post.id)}>削除</button>
                                         </>
-                                    )}                          
+                                    )}   
+                                    {post.image01 && (
+                                        <img src={post.image01} className={Styles.eyecatch} alt="" />
+                                    )}                       
                                 </>
                             )}
                         </li>

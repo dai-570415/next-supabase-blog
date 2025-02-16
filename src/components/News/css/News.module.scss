@@ -31,6 +31,25 @@
                 resize: none;
                 height: 120px;
             }
+            .interaction {
+                padding: 0 20px;
+                label {
+                    display: block;
+                    width: 24px;
+                    height: 24px;
+                    margin: 0 0 10px 0;
+                    background: url('../../../../public/upload-icon.svg') no-repeat center center;
+                    background-size: contain;
+                    cursor: pointer;
+                    .file {
+                        display: none;
+                    }
+                }
+                .preview {
+                    margin: 0 0 20px 0;
+                    border-radius: 20px;
+                }
+            }
         }
         button {
             display: block;
@@ -83,6 +102,13 @@
                 small {
                     text-align: justify;
                     line-height: 1.7;
+                }
+                .eyecatch {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    margin: 10px 0 0 0;
+                    border-radius: 20px;
                 }
                 button {
                     font-size: 11px;

@@ -3,4 +3,5 @@ export type PostTypes = {
     content: string;
     created_at: string;
     user_id: string;
+    image01: string;
 }
