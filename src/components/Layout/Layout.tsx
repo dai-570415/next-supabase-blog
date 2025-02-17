@@ -14,7 +14,7 @@ export const Layout: FC<Props> = ({ children }) => {
     return (
         <div className="container">
             <header className={Styles.header}>
-                <Link href="/" className={Styles.logo}>Supabase App</Link>
+                <Link href="/" className={Styles.logo}>TWiSpa</Link>
                 {user ? (
                     <div className={Styles.right}>
                         {user && (<p>{user.email}</p>)}
